@@ -22,8 +22,9 @@ params = {
 }
 
 response = requests.get(QUOTE_ENDPOINT, headers=headers, params=params)
-quote = response.json()[0]['quote']
-author = response.json()[0]['author']
+data = response.json()
+quote = data[0]['quote']
+author = data[0]['author']
 
 message_text = f"\n\nToday's motivational quote is:\n {quote}\n\t-{author}"
 print(message_text)
