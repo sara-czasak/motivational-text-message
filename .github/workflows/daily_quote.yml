@@ -3,7 +3,7 @@ name: Daily Quote
 on:
   schedule:
     - cron: '0 6 * * *'
-    - corn: '0 20 * * *'
+    - cron: '0 20 * * *'
 
 jobs:
   send-quote:
@@ -16,13 +16,14 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-          run: pip install -r requirements.txt
+        run: pip install -r requirements.txt
       - name: Run script
-          env:
-            TWILIO_NUMBER: ${{ secrets.TWILIO_NUMBER }}
-            TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
-            TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-            MY_NUMBER: ${{ secrets.MY_NUMBER }}
-            API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
-          run: python main.py
+        env:
+          TWILIO_NUMBER: ${{ secrets.TWILIO_NUMBER }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          MY_NUMBER: ${{ secrets.MY_NUMBER }}
+          API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
+        run: python main.py
+
           
