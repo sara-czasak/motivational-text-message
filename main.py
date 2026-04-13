@@ -27,3 +27,10 @@ author = response.json()[0]['author']
 
 message_text = f"Today's motivational quote is:\n {quote}\n\t-{author}"
 print(message_text)
+
+client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+message = client.messages.create(
+    body=message_text,
+    from_=TWILIO_NUMBER,
+    to=MY_NUMBER,
+)
